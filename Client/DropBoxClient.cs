@@ -10,7 +10,7 @@ namespace DropBoxAPI.Client
 {
     public class DropBoxClient
     {
-        private const string AccessToken = "DBtqFGCsEzAAAAAAAAACsaCx7dsdeRaR8bzM7fovslDe3hc_PC3RoyeldOe0eJKx";
+        private const string AccessToken = "DBtqFGCsEzAAAAAAAAACs4F0tTWkOTU4wrdiWCZbIqtbd-wpVh9mQujxz9Tdvhov";
         private readonly RestClient _restClient;
         
         public DropBoxClient(string baseUrl)

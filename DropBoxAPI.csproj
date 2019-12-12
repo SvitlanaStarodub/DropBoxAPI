@@ -54,6 +54,8 @@
     <Compile Include="DataModels\CreateFolderRequestDto.cs" />
     <Compile Include="DataModels\CreateFolderResponseDto.cs" />
     <Compile Include="DataModels\DeleteFolderRequestDto.cs" />
+    <Compile Include="DataModels\FoldersRequestDto.cs" />
+    <Compile Include="DataModels\FoldersResponseDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
