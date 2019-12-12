@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropBoxAPI", "DropBoxAPI.csproj", "{B57848DD-4455-4313-BE97-84560D5887A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropBoxAPITests", "..\DropBoxAPITests\DropBoxAPITests.csproj", "{7D7D9FDC-6FDF-42FF-9F7D-B42F8F76398D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B57848DD-4455-4313-BE97-84560D5887A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57848DD-4455-4313-BE97-84560D5887A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57848DD-4455-4313-BE97-84560D5887A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57848DD-4455-4313-BE97-84560D5887A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D7D9FDC-6FDF-42FF-9F7D-B42F8F76398D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D7D9FDC-6FDF-42FF-9F7D-B42F8F76398D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D7D9FDC-6FDF-42FF-9F7D-B42F8F76398D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D7D9FDC-6FDF-42FF-9F7D-B42F8F76398D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {894F2D46-2DF8-448B-A25B-002ABE077D7C}
+	EndGlobalSection
+EndGlobal
