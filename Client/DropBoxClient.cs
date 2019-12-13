@@ -10,17 +10,17 @@ namespace DropBoxAPI.Client
 {
     public class DropBoxClient
     {
-        private const string AccessToken = "DBtqFGCsEzAAAAAAAAACs4F0tTWkOTU4wrdiWCZbIqtbd-wpVh9mQujxz9Tdvhov";
+        private const string AccessToken = "DBtqFGCsEzAAAAAAAAACt0iGAmdRrLXWSzKyJ9ilqaxpgI1-uwxjio_t60HOIToV";
         private readonly RestClient _restClient;
         
-        public DropBoxClient(string baseUrl)
+        public DropBoxClient()
         {
-            _restClient = new RestClient(baseUrl);
+            _restClient = new RestClient();
         }
 
         public CreateFolderResponseDto CreateFolder(CreateFolderRequestDto createFolderRequestDto)
         {
-            var request = new RestRequest("2/files/create_folder_v2", Method.POST);
+            var request = new RestRequest("https://api.dropboxapi.com/2/files/create_folder_v2", Method.POST);
             AuthorizationHeaders(request);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(JsonConvert.SerializeObject(createFolderRequestDto));
@@ -34,7 +34,7 @@ namespace DropBoxAPI.Client
 
         public void DeleteFolder(DeleteFolderRequestDto deleteFolderRequestDto)
         {
-            var request = new RestRequest("2/files/delete_v2", Method.POST);
+            var request = new RestRequest("https://api.dropboxapi.com/2/files/delete_v2", Method.POST);
             AuthorizationHeaders(request);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(JsonConvert.SerializeObject(deleteFolderRequestDto));
@@ -51,7 +51,7 @@ namespace DropBoxAPI.Client
 
         public AddFileResponseDto AddFile(AddFileRequestDto addFileRequestDto, string fileName)
         {
-            var request = new RestRequest("2/files/upload", Method.POST);
+            var request = new RestRequest("https://content.dropboxapi.com/2/files/upload", Method.POST);
             AuthorizationHeaders(request);
             request.AddHeader("Content-Type", "application/octet-stream");
             request.AddHeader("data-binary", $"@{fileName}");
@@ -70,7 +70,7 @@ namespace DropBoxAPI.Client
 
         public FoldersResponseDto GetFolder(FoldersRequestDto foldersRequestDto)
         {
-            var request = new RestRequest("2/files/list_folder", Method.POST);
+            var request = new RestRequest("https://api.dropboxapi.com/2/files/list_folder", Method.POST);
             AuthorizationHeaders(request);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(JsonConvert.SerializeObject(foldersRequestDto));
@@ -80,6 +80,20 @@ namespace DropBoxAPI.Client
             {
                 throw new Exception($"{response.StatusCode} - {response.ErrorMessage}");
             }
+            return response.Data;
+        }
+
+        public GetFileResponseDto GetFile(GetFileRequestDto getFileRequestDto)
+        {
+            var request = new RestRequest("https://content.dropboxapi.com/2/files/download", Method.POST);
+            AuthorizationHeaders(request);
+            request.AddHeader("Dropbox-API-Arg", JsonConvert.SerializeObject(getFileRequestDto));
+            var response = _restClient.Execute<GetFileResponseDto>(request);
+            if (!response.IsSuccessful)
+            {
+                throw new Exception($"{response.StatusCode} - {response.ErrorMessage}");
+            }
+
             return response.Data;
         }
     }
